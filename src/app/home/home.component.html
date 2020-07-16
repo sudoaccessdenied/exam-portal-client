@@ -1,0 +1,71 @@
+
+<div class="bootstrap-wrapper"  >
+    <div class="container" style="margin-top:16px;margin-bottom:16px" >
+  
+      <div  class="row">
+  
+     
+        
+          <!-- <div mat-card-avatar class="app-header-image"></div> -->
+       
+          <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle>1 -->
+        
+          <div class="col "> 
+
+          
+            <img mat-card-image  class ="ep-border-radius" src="./assets/img/banner.webp" alt="Photo of a Shiba Inu"  style="width:50%;margin-left: 22%;">
+            <h1 class="mat-display-2 " style="text-align: center;">SCSS Lab Examination Portal</h1> 
+          
+          
+          </div>
+          <!-- <p>
+            Lab Exam Portal 
+          </p> -->
+        <!-- <mat-card-actions>
+          <button mat-button>LIKE</button>
+          <button mat-button>SHARE</button>
+        </mat-card-actions> -->
+      
+      
+  
+
+  
+  
+    <div class="col mat-elevation-z7  ep-border-radius" > 
+      <!-- <div class=" "> -->
+        <mat-tab-group mat-stretch-tabs class="app-stretched-tabs" [(selectedIndex)]="selected"
+        
+        (selectedTabChange)="selected"
+        > 
+          <mat-tab label="Login">
+            
+          <!-- // Enter you form here -->
+  
+      <ep-login ></ep-login>       
+          </mat-tab>
+          <mat-tab label="Registration">
+                    <div class="row" style="margin: 0px">
+
+                      <div class="col offset-4" style="padding: 16px;">
+
+                        <button mat-raised-button color="primary" (click) ="changeToAdmin()">{{ (isUser==true)?"Registor Course":"Registor Student"}}</button>
+                      </div>
+                    </div>
+                  <br>
+                    <div class="row" style="margin: 0px">
+                      <div class="col">
+
+                        <ep-registration *ngIf = "isUser"  (changeTab)="changeTab($event)"></ep-registration> 
+                        <ep-adminreg *ngIf = "!isUser" (changeTab)="changeTab($event)" ></ep-adminreg> 
+
+                      </div>
+                    </div>
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+    </div>
+  
+  </div>
+  </div>
+  
+  

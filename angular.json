@@ -24,6 +24,7 @@
               "src/assets"
             ],
             "styles": [
+              "src/custom-theme.scss",
               "src/styles.css"
             ],
             "scripts": []
@@ -119,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "exam-portal-client"
+    }
+  },
+  "defaultProject": "exam-portal-client",
+  "cli": {
+    "analytics": "5e902723-01f4-421b-bd68-eed0958fd0cd"
+  }
 }

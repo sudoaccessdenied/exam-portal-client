@@ -1,0 +1,16 @@
+.card-title
+{
+    font-weight: 500;
+}
+
+.question{
+
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.question-title
+{
+    font-size:  .8rem;
+
+}

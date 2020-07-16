@@ -1,0 +1,41 @@
+<div class="bootstrap-wrapper">
+    <div class="container">
+        <mat-progress-bar *ngIf="progressBar" mode="indeterminate" ></mat-progress-bar>
+
+            <div class="row justify-content-center">
+                <mat-card  class=" col-11  ep-border-radius mat-elevation-z8" >
+                    <mat-card-header>
+                            <mat-card-title >
+                                Questions
+                            </mat-card-title>
+                    </mat-card-header>
+                    <mat-divider>
+                    </mat-divider>
+                    <mat-card-content>
+                  
+                    <mat-list>
+                        <mat-list-item class="row" >
+                            <div class="col-2 card-title" >Question ID </div>
+                            <div class="col-7 card-title">Title</div>
+                            <div class="col-1 card-title">Marks</div>
+                            <div class="col-2 card-title">Action</div>
+                            <!-- <div class="col-3"><button mat-raised-button>View Question</button></div> -->
+                    </mat-list-item>
+                    <mat-divider>
+                    </mat-divider>
+                        <mat-list-item class="row question" *ngFor="let q of questions">
+                                <div class="col-2">{{q.id}}</div>
+                                <div class="col-7" ><p class="question-title">
+                                    {{q.title}}
+                                </p></div>
+                                <div class="col-1">{{q.marks}}</div>
+                                <div class="col-1"> <a [routerLink]="['/admin/edit-question',q.id]"  mat-raised-button color="primary">Edit</a></div>
+                                <div class="col-1"><button  mat-raised-button color="warn" (click)="delete(q.id)" >Delete</button></div>
+                        </mat-list-item>
+                                            
+                    </mat-list>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+    </div>
+</div>

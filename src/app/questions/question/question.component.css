@@ -1,0 +1,20 @@
+.question-table{
+    width: 60%;
+    /* margin: auto; */
+}
+
+
+td ,th {
+    padding: 16px !important;
+}
+
+th{   font-size: 1.5em !important;}
+
+.question-font
+{
+    font-size: 16px;
+    /* padding: 16px; */
+    /* line-height: normal; */
+    /* border-radius: 600px; */
+
+}

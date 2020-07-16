@@ -1,0 +1,85 @@
+
+<mat-drawer-container   hasBackdrop="false" autosize>
+    <mat-drawer  class=" drawer mat-elevation-z8" #drawer  mode="side" opened>
+
+        
+        <button style="float: right; display: block;" *ngIf="drawer.opened" mat-button (click)="drawer.toggle()">
+            <span class="material-icons">
+                close
+                </span> &nbsp;   Close
+        </button>
+        <br>
+        <mat-card  style="margin: 24px;">
+            <mat-card-header>
+              <!-- <div mat-card-avatar class="example-header-image"></div> -->
+              <mat-card-title>Welcome  {{data.instructor_name}} </mat-card-title>
+              <mat-card-subtitle>Username : {{data.course_code}}</mat-card-subtitle>
+              <mat-card-subtitle>Subject : {{data.course_name}}</mat-card-subtitle>
+            </mat-card-header>
+            <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+            <mat-card-content>
+        
+                <mat-divider></mat-divider>
+                <mat-list role="list">
+                    <mat-list-item  role="listitem">
+                        <a   class="nav-button" [routerLink]="['/admin/overview']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"
+                         mat-button color="primary">
+                            OverView
+                        </a>
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                    <mat-list-item  role="listitem">
+                        <a class="nav-button" [routerLink]="['/admin/create-exam']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"
+                         mat-button color="primary">
+                            Create Exam
+                        </a>
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                    <mat-list-item  role="listitem">
+                        <a class="nav-button" [routerLink]="['/admin/list-exam']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"
+                         mat-button color="primary">
+                            List Exam
+                        </a>
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                    <mat-list-item  role="listitem">
+                        <a class="nav-button" [routerLink]="['/admin/submissions']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"
+                         mat-button color="primary">
+                            View Submissions
+                        </a>
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                    <mat-list-item  role="listitem">
+                        <a class="nav-button" [routerLink]="['/admin/change-inst-name']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"
+                         mat-button color="accent">
+                            Change Instructor Name
+                        </a>
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                   
+                </mat-list>
+            </mat-card-content>
+            <mat-card-actions>
+              
+              <!-- <button mat-button>SHARE</button> -->
+              <mat-divider></mat-divider> 
+            </mat-card-actions>
+          </mat-card>
+    
+    
+    </mat-drawer>
+    <mat-drawer-content >
+        
+        
+        <button *ngIf="!drawer.opened" mat-button (click)="drawer.toggle()">
+            <span class="material-icons">
+                menu
+                </span> &nbsp;    Menu
+        </button>
+        <mat-divider></mat-divider>
+        <br>
+        <router-outlet ></router-outlet>
+        
+
+    </mat-drawer-content>
+  </mat-drawer-container>

@@ -1,0 +1,77 @@
+<div class="bootstrap-wrapper" style="margin-bottom: 7%;" >
+
+    <div class="container " >
+        
+        
+        <div class="row justify-content-center">
+                    <mat-card  class="col col-sm-12 col-md-6 col-lg-4 box-1 mat-elevation-z8">
+                        <mat-card-header>
+                                <mat-card-title class="color-white">
+                                    User Online
+                                </mat-card-title>
+                        </mat-card-header>
+                        <mat-card-content class= "card-content">
+                            <p>
+                                {{nOnlineUser}}
+                            </p>
+                        </mat-card-content>
+                    </mat-card>
+                    
+                  
+        
+         
+                    <mat-card  class="col col-sm-12 col-md-6 col-lg-4 boxes mat-elevation-z8 offset-1">
+                        <mat-card-header>
+                                <mat-card-title class="color-white">
+                                    Next exam 
+                                </mat-card-title>
+                        </mat-card-header>
+                        <mat-card-content class= "card-date" *ngIf="nextExam">
+                            <p>
+                                {{nextExam.exam_date}}
+                            </p>
+                            <p>
+                                {{nextExam.exam_time}}
+
+                            </p>
+                        </mat-card-content>
+                    </mat-card>
+        
+    </div>
+    <br>
+    <mat-divider>
+    </mat-divider>
+    <br>
+    <div class="row justify-content-center">
+        <mat-card  class=" col col-sm-12 col-md-6 col-lg-6  mat-elevation-z8  box-2">
+            <mat-card-header>
+                    <mat-card-title  class="color-white">
+                        List Of Online User
+                    </mat-card-title>
+            </mat-card-header>
+            <mat-card-content >
+               
+                <mat-list >
+                    
+                    <mat-list-item class="color-white" *ngFor="let user of onlineUser" >
+                        {{user.name}} &nbsp;
+                    <span class="material-icons" style="font-size: .7rem;color:rgb(15, 228, 15)"> stop_circle </span>
+                    <mat-divider></mat-divider>
+                    </mat-list-item>
+
+                   
+        
+
+                   
+                    
+                </mat-list>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    
+
+</div>
+
+</div>
+
+

@@ -1,0 +1,48 @@
+<div class="bootstrap-wrapper">
+    <div class="container">
+        
+        <div class="row justify-content-center">
+            <mat-progress-bar *ngIf="progressBar" mode="indeterminate" class="col col-12" ></mat-progress-bar>
+            <mat-card  class=" col-11  ep-border-radius mat-elevation-z8" >
+                    <mat-card-header>
+                            <mat-card-title >
+
+                                List of Exams
+                            </mat-card-title>
+                    </mat-card-header>
+                    <mat-divider>
+                    </mat-divider>
+                    <mat-card-content>
+                  
+                    <mat-list>
+                        <mat-list-item class="row">
+                            <div class="col-1 card-title">ID</div>
+                            <div class="col-1 card-title">Code</div>
+                            <div class="col-2 card-title">Name</div>
+                            <div class="col-2 card-title">Date</div>
+                            <div class="col-1 card-title">Duration</div>
+                            <div class="col-5 card-title"> Action</div>
+                            <!-- <div class="col-3"><button mat-raised-button>View Question</button></div> -->
+                    </mat-list-item>
+                    <mat-divider>
+                    </mat-divider>
+
+                        <mat-list-item class="row" *ngFor="let item of listExam">
+                                <div class="date col-1">{{item.exam_id}} </div>
+                                <div class="date col-1">{{item.exam_code}} </div>
+                                <div class="date col-2">{{item.exam_name}}</div>
+                                <div class="date col-2">{{item.exam_date+" \n"+item.exam_time}} </div>
+                                <div class="date col-1">{{item.exam_hours}}Min</div>
+                                <div class=" col-2"> <a [routerLink]="['/admin/add-question',item.exam_id]"  mat-raised-button color="primary" >Add Question</a></div>
+                                <div class=" col-2"><a [routerLink]="['/admin/view-question',item.exam_id]" mat-raised-button color="accent">View Question</a></div>
+                                <div class=" col-1"><button  mat-raised-button color="warn" (click)="delete(item.exam_id)">Delete</button></div> 
+                        </mat-list-item>              
+                    </mat-list>
+
+
+                    
+                    </mat-card-content>
+                </mat-card>
+            </div>
+    </div>
+</div>

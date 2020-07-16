@@ -1,0 +1,58 @@
+<div class="bootstrap-wrapper margin">
+    <div class="container-fluid">
+
+
+
+      <div class="row position-fixed">
+          <div class="col">
+              {{hour}} : {{minute}}: {{second}} 
+          </div>
+
+      </div>
+    <div class="row">
+
+    <mat-card class="col-lg-3 " >
+    <mat-card-header>
+      <!-- <div mat-card-avatar class="example-header-image"></div> -->
+      <mat-card-title>Welcome , {{data.student_name}} </mat-card-title>
+      <mat-card-subtitle>Username : {{data.username}}</mat-card-subtitle>
+    </mat-card-header>
+    <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+    <mat-card-content>
+
+        <mat-divider></mat-divider>
+        <mat-list role="list">
+            <mat-list-item  role="listitem">Student IP : {{data.client_ip}}</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item  role="listitem">Course Code : {{data.course_code}}</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item  role="listitem">Course : {{data.course}}</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item   role="listitem">Exam Name  : {{data.exam_details.exam_name}}</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item  role="listitem">Exam  hour: {{data.exam_details.exam_hours}}</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item   role="listitem">Exam Date  : {{data.exam_details.exam_date}}</mat-list-item>
+            <mat-divider></mat-divider>
+
+            <mat-list-item  role="listitem">Exam Time  : {{data.exam_details.exam_time}} </mat-list-item>
+            <mat-divider></mat-divider>  
+        </mat-list>
+    </mat-card-content>
+    <mat-card-actions>
+      <a [routerLink]="['/questions/question']" routerLinkActive="router-link-active"  mat-stroked-button color="accent">Show Questions</a>
+      <!-- <button mat-button>SHARE</button> -->
+      <mat-divider></mat-divider> 
+    </mat-card-actions>
+  </mat-card>
+
+
+  <div class="col-lg-9">
+
+
+      <router-outlet></router-outlet>
+  </div>
+
+<!-- </div> -->
+</div>
+</div>

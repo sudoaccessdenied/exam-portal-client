@@ -1,0 +1,58 @@
+<div class="bootstrap-wrapper" style="margin-bottom:200px">
+
+    <div class="container" >
+
+        <div class="row justify-content-center" >
+        <mat-card  class=" col-10  ep-border-radius mat-elevation-z8" >
+            <mat-card-header>
+                    <mat-card-title >
+                        {{title}}
+                    </mat-card-title>
+            </mat-card-header>
+            <mat-divider>
+            </mat-divider>
+            <mat-card-content >
+                
+                <form #form="ngForm" [formGroup]="addQuesForm">
+                        <div class="row justify-content-center">
+                    <mat-progress-bar *ngIf="progressBar"  mode="indeterminate" class="col col-8"></mat-progress-bar>
+                        <mat-form-field  class="col col-10"  appearance="outline" color="accent">
+                            <mat-label>Question Title</mat-label>
+                            <input matInput  formControlName="title" placeholder="Ex. Reverse a Linked List">
+                            <mat-icon matSuffix>assignment</mat-icon>
+                            <mat-hint>Ex. Reverse a Linked List Using Recursion</mat-hint>
+                          </mat-form-field>
+                          
+                          <mat-form-field  class="col col-10" appearance="outline" color="accent">
+                            <mat-label>Marks</mat-label>
+                            <input matInput type="number" formControlName="marks" placeholder="Ex. 180" min="0">
+                            <span matSuffix>Marks </span>
+                            <mat-hint>Ex.  10</mat-hint>
+                          </mat-form-field>
+                        
+                          <angular-editor  class="col col-10" [config] ="config" formControlName="description"></angular-editor>
+                        </div>
+
+                        <br>
+                        <div class="row justify-content-center">
+
+                            <button 
+                            class="col col-4" mat-raised-button color="primary"
+                            type = "submit" mat-raised-button
+                            [class.mat-elevation-z5]="true"
+                            [disabled] ="!addQuesForm.valid"
+                            (click) ="onSubmit()"
+                            >{{progressBar?"Submittin...":"Submit"}}</button>
+                        </div>
+                    </form>
+            
+
+    </mat-card-content>
+    </mat-card>
+
+    </div>
+
+</div>
+</div>
+
+

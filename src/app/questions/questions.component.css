@@ -1,0 +1,20 @@
+.margin{
+
+    margin:2%;
+}
+
+.position-fixed
+{
+    position: fixed;
+    padding: 16px 45px 16px 45px ;
+    top:1%;
+    left:50%;
+    z-index:2;
+    color: white;
+    opacity: 0.9;
+    /* font-weight: bold; */
+    font-size: 2em;
+    border-radius: 24px;
+    background: linear-gradient(to bottom right, #ff0000 0%, #ff00ff 109%);
+
+}

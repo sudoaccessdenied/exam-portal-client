@@ -1,0 +1,61 @@
+<div class="bootstrap-wrapper">
+
+        <div class="container  ">
+
+            <div class="row justify-content-center" >
+            <mat-card  class=" col-5  ep-border-radius mat-elevation-z8" >
+                <mat-card-header>
+                        <mat-card-title class="color-white">
+                            Create Exam
+                        </mat-card-title>
+                </mat-card-header>
+                <mat-divider>
+                </mat-divider>
+                <mat-card-content class= "card-content">
+                    
+                    <form #form="ngForm" class="row justify-content-center" [formGroup]="examForm" (ngSubmit)="onSubmit()">
+                        <mat-progress-bar *ngIf="progressBar" mode="indeterminate" class="col col-8"></mat-progress-bar>
+                            <mat-form-field  class="col col-8"  appearance="outline" color="accent">
+                                <mat-label>Enter Exam Name</mat-label>
+                                <input matInput formControlName="name" placeholder="Ex. End Semester">
+                                <mat-icon matSuffix>assignment</mat-icon>
+                                <mat-hint>Ex. End Semester</mat-hint>
+                              </mat-form-field>
+                              
+                              <mat-form-field  class="col col-8" appearance="outline" color="accent">
+                                <mat-label>Exam Duration</mat-label>
+                                <input matInput type="number" formControlName="duration" placeholder="Ex. 180" min="10">
+                                <span matSuffix>min </span>
+                                <mat-hint>Ex.  For 3 hour enter 180 min</mat-hint>
+                              </mat-form-field>
+                            
+                              <mat-form-field  class="col col-8" color="accent" appearance="outline">
+                                <mat-label>Exam Date</mat-label>
+                                <input matInput formControlName="date"[matDatepicker]="picker1" readonly>
+                                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                                <mat-datepicker #picker1></mat-datepicker>
+                              </mat-form-field>
+
+                              <mat-form-field  class="col col-8"  color="accent" appearance="outline">
+                                <mat-label>Schedule At</mat-label>
+                                <input [ngxTimepicker]="picker" formControlName="time" matInput placeholder="Placeholder"  [format]="24" readonly>
+                                <mat-icon matSuffix>access_time</mat-icon>
+                                <ngx-material-timepicker #picker></ngx-material-timepicker>
+                              </mat-form-field>
+                             <mat-error>{{error}}</mat-error>
+                              <button class="col col-8" mat-raised-button color="primary"
+                                   type = "submit" mat-raised-button
+                                  [class.mat-elevation-z5]="true"
+                                  [disabled] = "!examForm.valid "
+                              >{{progressBar?"Submit...":"Submit"}}</button>
+
+                        </form>
+                
+
+        </mat-card-content>
+    </mat-card>
+
+        </div>
+
+    </div>
+</div>

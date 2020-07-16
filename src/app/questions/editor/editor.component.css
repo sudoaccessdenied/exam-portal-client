@@ -1,0 +1,68 @@
+div.code-editor {
+max-height: 70vh;
+    
+}
+
+.input-field{
+
+    width: 400px;
+
+}
+
+.button-margin
+{
+    margin:8px;
+
+}
+
+.q-heading{
+
+    
+    /* text-align: left; */
+    padding:24px 24px 0px 24px;
+    margin-left:24px;
+    overflow: auto;
+    
+
+}
+
+.q-description
+{
+    padding:24px;
+    margin-left:24px;
+    overflow: auto;
+   
+    margin-bottom: 24px;
+    
+}
+
+.green{
+    color:green;
+}
+.error
+{
+    color:red;
+}
+
+.output{
+    height: 300px;
+    max-height: 300px;
+    padding:24px;
+    /* margin-left:24px; */
+    overflow: auto;
+    margin: 24px;
+    background: rgba(0, 0, 0, .1);
+}
+
+.compiler-action
+{
+    padding: 16px;
+
+}
+.progress
+{
+    position: fixed;
+    left:50%;
+    top:50%;
+
+}

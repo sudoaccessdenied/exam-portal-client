@@ -1,0 +1,46 @@
+<form [formGroup] ="loginForm" (ngSubmit) = "onSubmit()">
+    <div class="flex-container"> 
+       
+    <mat-icon class="icon" color="primary" >lock</mat-icon>
+    <!-- <div class="example-section flex-item"> -->
+        <mat-slide-toggle
+            formControlName = "isAdmin"
+            [color]="color"
+            name= "isAdmin"
+            class="flex-item"
+            > 
+         Toggle if are you Course Instructor ?
+        </mat-slide-toggle>
+    <!-- </div> -->
+
+   <!-- userName -->
+    <mat-form-field appearance="outline" class="flex-item">
+    <mat-label>Enter Your Username</mat-label>
+    <input autocomplete="on"  formControlName ="username"  matInput name = "username" placeholder="Username">
+    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    </mat-form-field>
+  
+    <!-- password field -->
+    <mat-form-field appearance="outline" class="flex-item">
+    <mat-label>Enter your password</mat-label>
+    <input autocomplete="on" matInput [type]="hide ? 'password' : 'text'" formControlName = "password">
+    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+    <mat-icon >{{hide ? 'visibility_off' : 'visibility'}}</mat-icon></button>
+    </mat-form-field>
+
+    <mat-error *ngIf="error">{{error}}</mat-error>
+    <!-- submit button -->
+    <mat-progress-bar mode="indeterminate" *ngIf="submitBar"></mat-progress-bar>
+    <button   type = "submit" mat-raised-button
+    [class.mat-elevation-z5]="true"
+    [disabled] = "!loginForm.valid " color="accent" class="flex-item">
+    {{submitBar?"Logging...":"Login"}} <mat-icon>forward</mat-icon>
+    </button>
+    </div>
+</form>
+
+<div class="forgot-password">
+    <a mat-flat-button  routerLink=".">Forgot Password ?</a> 
+</div>
+         
+  

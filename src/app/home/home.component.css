@@ -1,0 +1,50 @@
+.flex-container{
+    
+    display:flex;
+    flex-flow: row wrap;
+    justify-content:space-evenly ;
+    margin:16px;
+    /* height: 89vh; */
+
+}
+.flex-item
+{
+    width: 50%;
+    
+    /* background-color:brown; */
+}
+
+/* .background
+  {
+      background-image: url(/src/assets/img/footer.svg);
+      background-size: 150%;
+
+  } */
+
+
+
+
+.app-stretched-tabs {
+    max-width: 100%;
+  }
+
+/* .container{
+    margin: 16px;
+
+} */
+.app-container .mat-form-field + .mat-form-field {
+    margin-left: 8px;
+  }
+  
+  .app-right-align {
+    text-align: right;
+  }
+  
+  input.app-right-align::-webkit-outer-spin-button,
+  input.app-right-align::-webkit-inner-spin-button {
+    display: none;
+  }
+  
+  input.app-right-align {
+    -moz-appearance: textfield;
+  }

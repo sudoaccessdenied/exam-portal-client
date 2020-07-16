@@ -1,0 +1,36 @@
+
+
+  mat-drawer-container {
+    position: fixed;
+    height: 100%;
+    min-height: 100%;
+    width: 100%;
+    min-width: 100%;
+ }
+
+.drawer
+{
+    width: 25%;
+}
+
+
+.mat-list-item  a.active
+{
+    background-color:rgba(0, 0, 0, .87);
+    color:white;
+}
+
+.nav-button
+
+{
+    width: 100%;
+
+}
+   /* mat-drawer-content {
+    padding: 12px;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    flex-grow:initial;
+    align-items: flex-start;
+  }   */

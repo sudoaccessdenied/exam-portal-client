@@ -1,0 +1,52 @@
+<div class="bootstrap-wrapper">
+    <div class="container">
+            <div class="row justify-content-center">
+                <mat-card  class=" col-11  ep-border-radius mat-elevation-z8" >
+                    <mat-card-header>
+                            <mat-card-title >
+                                Check Submission
+                            </mat-card-title>
+                    </mat-card-header>
+                    
+                    <mat-card-content>    
+
+                            <form [formGroup] ="subForm" (ngSubmit) = "onSubmit()" >
+                                <mat-progress-bar mode="indeterminate" *ngIf="progressBar"></mat-progress-bar>
+                                <mat-form-field appearance="outline" class="flex-item">
+                                    <mat-label>Enter Your Exam ID</mat-label>
+                                    <input autocomplete="on"  formControlName ="examCode"  matInput  placeholder="Exam ID">
+                                    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                                    </mat-form-field>
+                                &nbsp;
+                                <button mat-raised-button color="accent"  type="submit" [disabled] = "!subForm.valid ">{{progressBar?"Fetching..":"Fetch"}}</button>
+                            </form>
+                            <mat-divider></mat-divider>
+                   
+                   
+                    <mat-list>
+                        <mat-list-item class="row" >
+                            <div class="col-3 card-title" >Student ID </div>
+                            <div class="col-4 card-title">Name</div>
+                            <div class="col-3 card-title"> Total Marks</div>
+                            <div class="col-2 card-title"> Action</div>
+                            <!-- <div class="col-3"><button mat-raised-button>Check Question</button></div> -->
+                    </mat-list-item>
+                    <mat-divider>
+                    </mat-divider>
+                        <mat-list-item class="row question" *ngFor="let item of listStudent">
+                                <div class="col-3">{{item.username}}</div>
+                                <div class="col-4">{{item.name}} </div>
+                                <div class="col-3">{{item.total_marks!=null?item.total_marks:"Not Evaluated"}} </div>
+                                <div class="col-2"> 
+                                    <a [routerLink]="['/admin/check-questions',item.student_id,examId]"
+                                      mat-raised-button color="primary">{{item.total_marks!=null?"Evaluated":"Evaluate"}}</a></div>
+                        </mat-list-item>
+                    </mat-list>
+
+
+                    
+                    </mat-card-content>
+                </mat-card>
+            </div>
+    </div>
+</div>

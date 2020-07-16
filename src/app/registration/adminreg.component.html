@@ -1,0 +1,130 @@
+
+
+
+<form [formGroup] = "regGroup" >
+    <mat-vertical-stepper #stepper linear>
+      <mat-step [stepControl]="regGroup.get('firstFormGroup')"
+        [formGroup]="regGroup.get('firstFormGroup')" >
+          <ng-template matStepLabel>Fill Course Name</ng-template>
+          <mat-form-field>
+            <mat-label>Course Name</mat-label>
+            <input  autocomplete="on" matInput placeholder="Ex. Artificial Intelligence" formControlName="firstCtrl" required>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+      </mat-step>
+  
+      <!-- <mat-step [stepControl]="secondFormGroup" >
+        <form [formGroup]="secondFormGroup">
+          <ng-template matStepLabel>Fill out your Email</ng-template>
+          <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input  autocomplete="on" matInput  formControlName="secondCtrl" placeholder="Ex. pat@example.com"
+                   required>
+          </mat-form-field>
+  
+          
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step> -->
+  
+  
+      <mat-step [stepControl]="regGroup.get('secondFormGroup')" 
+          [formGroup]="regGroup.get('secondFormGroup')" >
+              <ng-template matStepLabel>Fill out your Email</ng-template>
+              <mat-form-field >
+                <mat-label>Email</mat-label>
+                <input  autocomplete="on" matInput  formControlName="secondCtrl" placeholder="Ex. pat@example.com">
+                <!-- <mat-error *ngIf="secondCtrl.hasError('email') && !secondCtrl.hasError('required')">
+                  Please enter a valid email address
+                </mat-error>
+                <mat-error *ngIf="secondCtrl.hasError('required')">
+                  Email is <strong>required</strong>
+                </mat-error> -->
+              </mat-form-field>
+              <div>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+      </mat-step>
+  
+      <!-- Enrollment no. -->
+      <mat-step [stepControl]="regGroup.get('thirdFormGroup')" 
+          [formGroup]="regGroup.get('thirdFormGroup')" >
+              <ng-template matStepLabel>Your Course Code</ng-template>
+              <mat-form-field >
+                <mat-label>Course Code</mat-label>
+                <input  autocomplete="on" matInput  formControlName="thirdCtrl" placeholder="Ex. CS-181">
+              </mat-form-field>
+              <div>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+      </mat-step>
+  
+      <mat-step [stepControl]="regGroup.get('fourthFormGroup')" [formGroup]="regGroup.get('fourthFormGroup')">
+              <ng-template matStepLabel>Enter Instructor Name</ng-template>
+              <mat-form-field >
+                <mat-label>Name</mat-label>
+                <input  autocomplete="on" matInput  formControlName="fourthCtrl" placeholder="Ex. First Name , Last Name">
+              </mat-form-field>
+              <div>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+      </mat-step>
+<!--   
+      <mat-step [stepControl]="regGroup.get('fifthFormGroup')" [formGroup]="regGroup.get('fifthFormGroup')">
+              <ng-template matStepLabel>Select your Semester</ng-template>
+              <mat-form-field>
+                <mat-label>Select Semester</mat-label>
+                <mat-select formControlName ="fifthCtrl" >
+                  <mat-option *ngFor="let sem of semesters" [value]="sem.value">
+                    {{sem.viewValue}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <div>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+            
+      </mat-step> -->
+  
+  
+      <mat-step [stepControl]="regGroup.get('passwordFormGroup')" 
+      [formGroup]="regGroup.get('passwordFormGroup')">
+              <ng-template matStepLabel>Fill Your Password</ng-template>
+              <mat-form-field >
+                <mat-label>Password</mat-label>
+                <input type="password" autocomplete="on" matInput  formControlName="passwordCtrl" placeholder="ex: password must be 8 digit">
+              </mat-form-field>
+              <br>
+              <mat-form-field >
+                  <mat-label>Confirm Password</mat-label>
+                  <input type="password" autocomplete="on" matInput  formControlName="confirmPasswordCtrl" placeholder="ex: password must be 8 digit">
+              </mat-form-field>
+              <div>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Done</ng-template>
+        <p>You are now done.</p>
+        <!-- <mat-error> {{this.emailError}}</mat-error> -->
+        <mat-error *ngIf="error" innerHtml="{{error}}"> </mat-error>
+        <mat-progress-bar *ngIf="submitBar" mode="indeterminate"></mat-progress-bar>
+        <div>
+          <button mat-raised-button  type= "submit" (click)="onSubmit(regGroup.value)" >
+            {{submitBar?"Submitting...":"Submit"}}
+          </button>
+          <!-- <button mat-button (click)="stepper.reset()">Reset</button> -->
+        </div>
+      </mat-step>
+    </mat-vertical-stepper>
+  </form>

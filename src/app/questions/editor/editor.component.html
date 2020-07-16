@@ -1,0 +1,113 @@
+
+<a [routerLink]="['/questions/question']" 
+routerLinkActive="router-link-active" mat-button  > Back to questions</a>
+
+<div [class.mat-elevation-z8]="true" class=" bootstrap-wrapper">
+    <div class="container">
+
+      <header class="q-heading">
+
+        <h1>Problem : {{this.question.question}}</h1>
+        <h4>Number of Submission : {{this.question.noOfSub}}</h4>
+      </header>
+      <section class="q-description" innerHtml="{{this.question.desc}}">
+        
+        
+      </section>
+
+    </div>
+  </div>
+
+
+
+<br>
+
+<div class="bootstrap-wrapper">
+
+  <div class="container " [class.mat-elevation-z8]= "true">
+    <form class="row" [formGroup]="editorOption" >
+      <div class="col">
+        <mat-label>Theme</mat-label>
+        <mat-select formControlName ="theme" (selectionChange)="onThemeChange($event)" >
+          <mat-option *ngFor="let theme of themes" [value]="theme.value">
+            {{theme.viewValue}}
+          </mat-option>
+        </mat-select>
+      </div>
+      <div class="col">
+        <mat-label>Font Size </mat-label>
+        <mat-select formControlName ="fontSize" (selectionChange)="onSizeChange($event)" >
+          <!-- <mat-option disabled  > </mat-option> -->
+          <mat-option *ngFor="let size of fontSizes" [value]="size.value">
+            {{size.viewValue}}
+          </mat-option>
+        </mat-select>
+      </div>
+      <div class="col"> 
+        <mat-label>Language</mat-label>
+        <mat-select formControlName ="language"  (selectionChange)="onLanguageChange($event)">
+          <mat-option *ngFor="let language of languages" [value]="language.value">
+            {{language.viewValue}}
+          </mat-option>
+        </mat-select>
+      </div>
+      
+    </form>
+  </div>
+    
+    <div class = "code-editor"  [class.mat-elevation-z8]= "true" #codeEditor></div>
+    
+    <!-- <div class="container"> -->
+      
+        <mat-spinner class="progress" *ngIf="submitBar" color="accent"></mat-spinner>
+      
+
+    <div class="container" class="compiler-action" [class.mat-elevation-z8]= "true">
+
+      <div class="row  ">
+        
+        <div class="col-7">
+          <mat-form-field [formGroup]="editorOption" appearance="outline" class = "input-field" color="accent"> 
+            <mat-label>Enter Your Inputs</mat-label>
+            <textarea matInput formControlName ="input"  placeholder="Enter your Input"></textarea>
+            <mat-hint>Enter all of your program input</mat-hint>
+          </mat-form-field>
+        </div>
+        
+        
+        <div class="col-5 ">
+          
+          <button mat-raised-button  class="button-margin"  (click)="beautifyContent()">Refract Code</button>
+          
+          
+          
+          <button mat-raised-button  color="primary" class="button-margin" (click) = "run()" >{{submitBar?'Runn...':'Run'}}</button>
+          
+          
+          <button mat-raised-button color="accent"  class="button-margin"  (click) = "submit()">{{submitBar?'S....':'Submit'}}</button>
+          
+        </div>
+        
+      </div>
+      
+    </div>
+      
+    </div>
+
+    <br>
+    
+    <div [class.mat-elevation-z8]="true" class="bootstrap-wrapper">
+      
+      <div class="container">
+        <header class="q-heading">
+          <h1>Output :</h1>
+        </header>  
+        <section class="output">
+          <h2 innerHTML ="{{status.value}}" [ngClass]="status.code?'green':'error'" ></h2>  
+          <h3><mat-error innerHtml = "{{error}}">Result is :</mat-error ></h3>
+          <p innerHtml="{{output}}"></p>
+        </section>
+        <br>
+      </div>
+    </div>
+

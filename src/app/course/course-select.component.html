@@ -1,0 +1,58 @@
+
+
+<form [formGroup] = "courseGroup" class="container-course">
+    <mat-horizontal-stepper #stepper linear>
+  
+      <mat-step  [stepControl]="courseGroup.get('courseGp')" [formGroup]="courseGroup.get('courseGp')">
+              <ng-template matStepLabel>Select your Course Subject</ng-template>
+              <mat-form-field class="course-margin" >
+                <mat-label>Course Subject </mat-label>
+                <mat-select formControlName ="course" >
+                  <mat-option *ngFor="let sem of courses" [value]="sem.value">
+                    {{sem.viewValue}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <div>
+                  <br>
+              
+              <button mat-raised-button color="primary" matStepperNext>Next</button>
+            </div>
+            
+      </mat-step>
+  
+  
+      <mat-step [stepControl]="courseGroup.get('pinGp')" 
+      [formGroup]="courseGroup.get('pinGp')" >
+              <ng-template matStepLabel>Fill the Secret Pin Shared By Instructor</ng-template>
+              <mat-form-field  class="course-margin">
+                <mat-label>Secret Pin</mat-label>
+                <input  autocomplete="on" matInput  formControlName="pin" placeholder="ex: PIN must be 4 digit">
+                
+              </mat-form-field>
+              
+              <div>
+                <button mat-button  matStepperPrevious>Back</button> &nbsp;
+                <button mat-raised-button color="primary" matStepperNext>Next</button>
+              </div>
+      </mat-step>
+  
+      <mat-step >
+        <ng-template matStepLabel>Instruction</ng-template>
+        <div class="course-padding">
+
+            <p>Your Time will start the moment you Enter submit button</p>
+
+        </div>
+        <div>
+              <mat-error *ngIf="error">
+                {{error}}
+              </mat-error>
+              <mat-progress-bar *ngIf="submitBar" mode="indeterminate" class="col col-8"></mat-progress-bar>
+              <button mat-button  matStepperPrevious>Back</button> &nbsp; 
+              <button mat-raised-button *ngIf="!submitBar"  color="primary" type= "submit" (click)="onSubmit(courseGroup.value)" >Start</button>
+          <!-- <button mat-button (click)="stepper.reset()">Reset</button> -->
+        </div>
+      </mat-step>
+    </mat-horizontal-stepper>
+  </form>

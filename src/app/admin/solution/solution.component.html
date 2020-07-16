@@ -1,0 +1,53 @@
+
+
+<div class="bootstrap-wrapper" style="margin-bottom:10%">
+    <div class="container">
+        <mat-progress-bar
+            mode="indeterminate"
+            *ngIf="progressBar">
+        </mat-progress-bar>
+
+            <div class="row justify-content-center">
+                <mat-card  class=" col-11  ep-border-radius mat-elevation-z8"  style="height:500px; overflow: auto;">
+                    <mat-card-header>
+                            <mat-card-title >
+                                Solution
+                            </mat-card-title>
+                    </mat-card-header>
+                    <mat-divider>
+                    </mat-divider>
+                <mat-card-content style="padding: 24px;" *ngIf="submission">
+
+                        <h1>{{submission.title}}</h1>
+                        <h2>Language: {{submission.lang}}</h2>
+                        <h2>Source Code:</h2>
+                        <code>
+                            <pre innerHtml="{{submission.source_code}}">
+                            
+                            </pre>
+                        </code>
+                        <h2>Input:</h2>
+                        <pre>{{submission.input}}</pre>
+                        <h2 >Output:</h2>
+                        <p innerHtml="{{submission.output}}"></p>
+
+                        
+                        <h2>Total Marks :{{submission.marks}}</h2>
+                        <!-- <h4>Total Marks : 10</h4> -->
+                        <h2 *ngIf="res"> {{res}}</h2>
+                        <form [formGroup] ="marksForm" (ngSubmit) = "onSubmit()" >
+                            <mat-progress-bar mode="indeterminate" *ngIf="progressBar"></mat-progress-bar>
+                            <mat-form-field appearance="outline" class="flex-item">
+                                <mat-label>Enter Score</mat-label>
+                                <input autocomplete="on" type="number" min="0" max="{{submission.marks}}" formControlName ="marks"  matInput  placeholder="Ex. 10">
+                                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                                <mat-error *ngIf="error"> {{error}}</mat-error>
+                            </mat-form-field>
+                            &nbsp;
+                            <button mat-raised-button color="accent"  type="submit" [disabled] = "!marksForm.valid ">{{progressBar?"Submitting....":"Submit"}}</button>
+                        </form>
+                    </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>
