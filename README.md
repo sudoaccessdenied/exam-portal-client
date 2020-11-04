@@ -1,7 +1,14 @@
 # ExamPortalClient
+It is an Examination portal used to conduct coding exam and evaluation of coding exam.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.4.
-![Video demo ](Screenshot5.png)
+
+Here are some screenshots. You can also find screnshot uploaded above
+![alt text](https://github.com/sudoaccessdenied/exam-portal-client/blob/master/Screenshot%20(7).png)
+![alt text](https://github.com/sudoaccessdenied/exam-portal-client/blob/master/Screenshot%20(8).png)
+![alt text](https://github.com/sudoaccessdenied/exam-portal-client/blob/master/Screenshot%20(3).png)
+![alt text](https://github.com/sudoaccessdenied/exam-portal-client/blob/master/Screenshot%20(11).png)
+![alt text](https://github.com/sudoaccessdenied/exam-portal-client/blob/master/Screenshot%20(24).png)
 
 ## Development server
 
